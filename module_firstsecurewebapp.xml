@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_firstsecurewebapp" default="compile.module.firstsecurewebapp">
+  <dirname property="module.firstsecurewebapp.basedir" file="${ant.file.module_firstsecurewebapp}"/>
+  
+  <property name="module.jdk.home.firstsecurewebapp" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.firstsecurewebapp" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.firstsecurewebapp" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.firstsecurewebapp" value="-encoding windows-1252 -source 8 ${compiler.args}"/>
+  
+  <property name="firstsecurewebapp.output.dir" value="${module.firstsecurewebapp.basedir}/out/production/firstSecureWebApp"/>
+  <property name="firstsecurewebapp.testoutput.dir" value="${module.firstsecurewebapp.basedir}/out/test/firstSecureWebApp"/>
+  
+  <path id="firstsecurewebapp.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="firstsecurewebapp.module.production.classpath">
+    <path refid="${module.jdk.classpath.firstsecurewebapp}"/>
+  </path>
+  
+  <path id="firstsecurewebapp.runtime.production.module.classpath">
+    <pathelement location="${firstsecurewebapp.output.dir}"/>
+  </path>
+  
+  <path id="firstsecurewebapp.module.classpath">
+    <path refid="${module.jdk.classpath.firstsecurewebapp}"/>
+    <pathelement location="${firstsecurewebapp.output.dir}"/>
+  </path>
+  
+  <path id="firstsecurewebapp.runtime.module.classpath">
+    <pathelement location="${firstsecurewebapp.testoutput.dir}"/>
+    <pathelement location="${firstsecurewebapp.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.firstsecurewebapp">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.firstsecurewebapp">
+    <patternset refid="excluded.from.module.firstsecurewebapp"/>
+  </patternset>
+  
+  <path id="firstsecurewebapp.module.sourcepath">
+    <dirset dir="${module.firstsecurewebapp.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.firstsecurewebapp" depends="compile.module.firstsecurewebapp.production,compile.module.firstsecurewebapp.tests" description="Compile module firstSecureWebApp"/>
+  
+  <target name="compile.module.firstsecurewebapp.production" depends="register.custom.compilers" description="Compile module firstSecureWebApp; production classes">
+    <mkdir dir="${firstsecurewebapp.output.dir}"/>
+    <javac2 destdir="${firstsecurewebapp.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.firstsecurewebapp}/javac">
+      <compilerarg line="${compiler.args.firstsecurewebapp}"/>
+      <bootclasspath refid="firstsecurewebapp.module.bootclasspath"/>
+      <classpath refid="firstsecurewebapp.module.production.classpath"/>
+      <src refid="firstsecurewebapp.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.firstsecurewebapp"/>
+    </javac2>
+    
+    <copy todir="${firstsecurewebapp.output.dir}">
+      <fileset dir="${module.firstsecurewebapp.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.firstsecurewebapp.tests" depends="register.custom.compilers,compile.module.firstsecurewebapp.production" description="compile module firstSecureWebApp; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.firstsecurewebapp" description="cleanup module">
+    <delete dir="${firstsecurewebapp.output.dir}"/>
+    <delete dir="${firstsecurewebapp.testoutput.dir}"/>
+  </target>
+</project>
