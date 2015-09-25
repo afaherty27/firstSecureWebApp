@@ -14,8 +14,8 @@
 <body>
 All application users can access this page.
 <ul>
-  <li><a href="admin.jsp">Take me to the Admin Page</a></li>
-  <li><a href="index.jsp">Take me Home</a></li>
+  <li><a href="../admin/admin.jsp">Take me to the Admin Page</a></li>
+  <li><a href="../index.jsp">Take me Home</a></li>
 </ul>
 </body>
 </html>
