@@ -4,47 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <!-- a servlet that redirects users to the display page-->
-  <servlet-mapping>
-        <servlet-name>display</servlet-name>
-        <url-pattern>/displayPage</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>display</servlet-name>
-        <servlet-class>firstSecureWebApp.DisplayRedirect</servlet-class>
-    </servlet>
-
-    <!-- a servlet that redirects users to the admin page -->
-   <servlet-mapping>
-        <servlet-name>admin</servlet-name>
-        <url-pattern>/adminPage</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>admin</servlet-name>
-        <servlet-class>firstSecureWebApp.AdminRedirect</servlet-class>
-    </servlet>
-
-    <!-- a servlet that redirects users to the index page
-        THIS BREAKS THE APPLICATION-->
-    <!--<servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/indexPage</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>index</servlet-name>
-        <servlet-class>firstSecureWebApp.IndexRedirect</servlet-class>
-    </servlet>-->
-
-    <!-- a servlet that redirects users to the login page
-                THIS BREAKS THE APPLICATION-->
-   <!--<servlet-mapping>
-        <servlet-name>login</servlet-name>
-        <url-pattern>/loginPage</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>login</servlet-name>
-        <servlet-class>firstSecureWebApp.LoginRedirect</servlet-class>
-    </servlet> -->
 
     <!-- form based authorization tags -->
     <security-constraint>

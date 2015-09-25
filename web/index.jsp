@@ -12,10 +12,8 @@
 </head>
 <body>
 <ul>
-  <li><a href="/admin/adminPage">Take me to the Admin Page</a></li>
-  <li><a href="/display/displayPage">Take me to the Display Page</a></li>
-  <li><a href="/loginPage">login test link</a></li> <!--jsp test link. remove at production-->
-  <li><a href="/login-error.jsp">login fail test link</a></li> <!--jsp test link. remove at production-->
+  <li><a href="/admin/admin.jsp">Take me to the Admin Page</a></li>
+  <li><a href="/display/display.jsp">Take me to the Display Page</a></li>
 </ul>
 
 </body>
